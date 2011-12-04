@@ -1,29 +1,27 @@
 package test.org.testinfected.specification;
 
 import org.junit.Test;
-import org.testinfected.specification.DisjunctionSpecification;
-import org.testinfected.specification.Contradiction;
-import org.testinfected.specification.Specification;
-import org.testinfected.specification.Tautology;
+import org.testinfected.specification.*;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.testinfected.specification.DisjunctionSpecification.either;
 
 public class DisjunctionSpecificationTest {
 
     Object aCandidate = new Object();
-    Specification satisfied = new Tautology();
-    Specification unsatisfied = new Contradiction();
+    Specification<Object> any = Tautology.any();
+    Specification<Object> none = Contradiction.none();
 
     @Test public void
     isSatisfiedWhenAtLeastOneSpecificationIsSatisfied() {
-         Specification disjunction = DisjunctionSpecification.either(unsatisfied).or(satisfied);
+         Specification<Object> disjunction = DisjunctionSpecification.either(none).or(any);
          assertThat("satisfied", disjunction.isSatisfiedBy(aCandidate), is(true));
      }
 
      @Test public void
      isUnsatisfiedWhenAllSpecificationsAreUnsatisfied() {
-         Specification disjunction = DisjunctionSpecification.either(unsatisfied).or(unsatisfied).or(unsatisfied);
+         Specification<Object> disjunction = DisjunctionSpecification.either(none).or(none).or(none);
          assertThat("satisfied", disjunction.isSatisfiedBy(aCandidate), is(false));
      }
 

@@ -11,4 +11,8 @@ public class NegationSpecification<T> implements Specification<T> {
     public boolean isSatisfiedBy(T candidate) {
         return !negated.isSatisfiedBy(candidate);
     }
+
+    public static <T> Specification<T> not(Specification<T> negated) {
+        return new NegationSpecification<T>(negated);
+    }
 }

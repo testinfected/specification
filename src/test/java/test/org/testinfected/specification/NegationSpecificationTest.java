@@ -14,15 +14,15 @@ public class NegationSpecificationTest {
 
     @Test public void
     isSatisfiedWhenOppositeSpecificationsIsUnsatisfied() {
-        Specification spec = new Contradiction();
-        Specification negation = new NegationSpecification(spec);
-        assertThat("satisfied", negation.isSatisfiedBy(aCandidate), is(true));
+        Specification<Object> none = Contradiction.none();
+        Specification<Object> any = NegationSpecification.not(none);
+        assertThat("satisfied", any.isSatisfiedBy(aCandidate), is(true));
     }
 
     @Test public void
     isUnsatisfiedWhenOppositeSpecificationsIsSatisfied() {
-        Specification spec = new Tautology();
-        Specification negation = new NegationSpecification(spec);
-        assertThat("satisfied", negation.isSatisfiedBy(aCandidate), is(false));
+        Specification<Object> any = Tautology.any();
+        Specification<Object> none = NegationSpecification.not(any);
+        assertThat("satisfied", none.isSatisfiedBy(aCandidate), is(false));
     }
 }
