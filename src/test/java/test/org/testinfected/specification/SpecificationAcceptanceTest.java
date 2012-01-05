@@ -14,6 +14,7 @@ import static org.testinfected.specification.Specifications.not;
 public class SpecificationAcceptanceTest {
 
     Circle aLargeBlackCircle = new Circle(20, Color.black);
+    Circle aLargeWhiteCircle = new Circle(20, Color.white);
     Circle aSmallWhiteCircle = new Circle(5, Color.white);
     Circle aHugeWhiteCircle = new Circle(50, Color.white);
     Specification<Circle> largeCircle = new WithSizeLargerThan(15);
@@ -41,9 +42,10 @@ public class SpecificationAcceptanceTest {
 
     @Test public void
     logicalNegationOfSpecifications() {
-        Specification<Shape> anyColorShape = anyOf(blackShape, not(blackShape));
-        assertThat("satisfied", anyColorShape.isSatisfiedBy(aLargeBlackCircle), is(true));
-        assertThat("satisfied", anyColorShape.isSatisfiedBy(aSmallWhiteCircle), is(true));
+        Specification<Circle> blackOrNotLargeCircle = anyOf(blackShape, not(largeCircle));
+        assertThat("satisfied", blackOrNotLargeCircle.isSatisfiedBy(aLargeBlackCircle), is(true));
+        assertThat("satisfied", blackOrNotLargeCircle.isSatisfiedBy(aSmallWhiteCircle), is(true));
+        assertThat("satisfied", blackOrNotLargeCircle.isSatisfiedBy(aLargeWhiteCircle), is(false));
 
         Specification<Circle> smallWhiteCircle = allOf(whiteShape, not(largeCircle));
         assertThat("satisfied", smallWhiteCircle.isSatisfiedBy(aSmallWhiteCircle), is(true));
