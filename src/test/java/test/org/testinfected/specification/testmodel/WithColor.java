@@ -4,6 +4,14 @@ import org.testinfected.specification.Specification;
 
 public class WithColor implements Specification<Shape> {
 
+    public static Specification<Shape> white() {
+        return new WithColor(Color.white);
+    }
+
+    public static Specification<Shape> black() {
+        return new WithColor(Color.black);
+    }
+
     private final Color color;
 
     public WithColor(Color color) {

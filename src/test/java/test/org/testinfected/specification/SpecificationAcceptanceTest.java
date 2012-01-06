@@ -13,14 +13,14 @@ import static org.testinfected.specification.Specifications.not;
 
 public class SpecificationAcceptanceTest {
 
-    Circle aLargeBlackCircle = new Circle(20, Color.black);
-    Circle aLargeWhiteCircle = new Circle(20, Color.white);
-    Circle aSmallWhiteCircle = new Circle(5, Color.white);
-    Circle aHugeWhiteCircle = new Circle(50, Color.white);
+    Circle aLargeBlackCircle = Circle.black(20);
+    Circle aLargeWhiteCircle = Circle.white(20);
+    Circle aSmallWhiteCircle = Circle.white(5);
+    Circle aHugeWhiteCircle = Circle.white(50);
     Specification<Circle> largeCircle = new WithSizeLargerThan(15);
     Specification<Circle> hugeCircle = new WithSizeLargerThan(35);
-    Specification<Shape> blackShape = new WithColor(Color.black);
-    Specification<Shape> whiteShape = new WithColor(Color.white);
+    Specification<Shape> blackShape = WithColor.black();
+    Specification<Shape> whiteShape = WithColor.white();
 
     @Test public void
     logicalConjunctionOfSpecifications() {
