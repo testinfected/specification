@@ -3,7 +3,7 @@ package org.testinfected.specification;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public abstract class CompositeSpecification<T> implements Specification<T> {
+public abstract class CompositeSpecification<T> extends AbstractSpecification<T> {
     private final Collection<Specification<? super T>> components = new ArrayList<Specification<? super T>>();
 
     protected CompositeSpecification(Collection<Specification<? super T>> components) {

@@ -1,0 +1,15 @@
+1. Implement generalization
+=> is special case of
+<= is generalization of
+
+spec X = spec A && spec B
+ X => A && X => B
+
+spec Y = spec A || spec B
+ A => Y && B => Y
+
+S => True && True => True
+
+False => S && False => False
+
+2. Consider renaming none() -> never() and any() -> always()
