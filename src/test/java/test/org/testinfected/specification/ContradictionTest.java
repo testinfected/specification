@@ -4,7 +4,7 @@ import org.junit.Test;
 import org.testinfected.specification.Contradiction;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.CoreMatchers.is;
 
 public class ContradictionTest {
 

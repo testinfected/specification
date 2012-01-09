@@ -4,8 +4,7 @@ import org.junit.Test;
 import org.testinfected.specification.*;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
-import static org.testinfected.specification.DisjunctionSpecification.either;
+import static org.hamcrest.CoreMatchers.is;
 
 public class DisjunctionSpecificationTest {
 

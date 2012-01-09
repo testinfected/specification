@@ -6,7 +6,7 @@ import org.testinfected.specification.Specifications;
 import test.org.testinfected.specification.testmodel.*;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.CoreMatchers.is;
 import static org.testinfected.specification.Specifications.allOf;
 import static org.testinfected.specification.Specifications.anyOf;
 import static org.testinfected.specification.Specifications.not;

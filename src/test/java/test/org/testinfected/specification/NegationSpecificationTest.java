@@ -7,7 +7,7 @@ import org.testinfected.specification.Specification;
 import org.testinfected.specification.Tautology;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.CoreMatchers.is;
 
 public class NegationSpecificationTest {
     Object aCandidate = new Object();
