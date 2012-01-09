@@ -20,7 +20,7 @@ public class NegationSpecificationTest {
     }
 
     @Test public void
-    isUnsatisfiedWhenOppositeSpecificationsIsSatisfied() {
+    isUnsatisfiedWhenOppositeSpecificationIsSatisfied() {
         Specification<Object> any = Tautology.any();
         Specification<Object> none = NegationSpecification.not(any);
         assertThat("satisfied", none.isSatisfiedBy(aCandidate), is(false));
