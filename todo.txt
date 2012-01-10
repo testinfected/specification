@@ -1,4 +1,4 @@
-1. Implement generalization
+1. Implement subsumption
 => is special case of
 <= is generalization of
 
@@ -12,4 +12,24 @@ S => True && True => True
 
 False => S && False => False
 
-2. Consider renaming none() -> never() and any() -> always()
+X => A
+!A => !X
+
+!X => A if !A => X
+
+!X = !A || !B
+!A => !X && !B => !X
+
+a) Composite
+- conjunction
+- disjunction
+
+b) negation
+
+2. Move members to interface
+
+3. Extract superclass
+
+4. Implement remainderUnsatisfiedBy(Specification other)
+
+5. Dispatch isSpecialCaseOf and isGeneralizationOf based on parameter type using reflection

@@ -11,11 +11,11 @@ public final class Tautology<T> extends AbstractSpecification<T> {
         return new Tautology<T>();
     }
 
-    public boolean isGeneralizationOf(Specification<? extends T> other) {
+    public boolean isGeneralizationOf(Specification<?> other) {
         return true;
     }
 
-    public boolean isSpecialCaseOf(Specification<? super T> other) {
+    public boolean isSpecialCaseOf(Specification<?> other) {
         return other instanceof Tautology;
     }
 }

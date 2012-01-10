@@ -11,11 +11,11 @@ public final class Contradiction<T> extends AbstractSpecification<T> {
         return new Contradiction<T>();
     }
 
-    public boolean isGeneralizationOf(Specification<? extends T> other) {
+    public boolean isGeneralizationOf(Specification<?> other) {
         return other instanceof Contradiction;
     }
 
-    public boolean isSpecialCaseOf(Specification<? super T> other) {
+    public boolean isSpecialCaseOf(Specification<?> other) {
         return true;
     }
 }
