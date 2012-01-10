@@ -20,12 +20,12 @@ public class TautologyTest {
 
     @Test public void
     isAlwaysSatisfied() {
-        assertThat("satisfied", tautology.isSatisfiedBy(anyCandidate), is(true));
+        assertThat("satisfied by any", tautology.isSatisfiedBy(anyCandidate), is(true));
     }
 
     @Test public void
     isMoreGenericThanAnyOtherSpecification() {
-        assertThat("generalization", tautology.isGeneralizationOf(anotherSpecification), is(true));
+        assertThat("generalization of other", tautology.isGeneralizationOf(anotherSpecification), is(true));
     }
 
     @Test public void

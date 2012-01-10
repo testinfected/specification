@@ -17,7 +17,7 @@ public class ContradictionTest {
 
     @Test public void
     isNeverSatisfied() {
-        assertThat("satisfied", contradiction.isSatisfiedBy(anyCandidate), is(false));
+        assertThat("satisfied by any", contradiction.isSatisfiedBy(anyCandidate), is(false));
     }
 
     @Test public void
