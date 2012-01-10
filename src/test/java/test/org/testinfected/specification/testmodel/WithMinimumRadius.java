@@ -2,11 +2,15 @@ package test.org.testinfected.specification.testmodel;
 
 import org.testinfected.specification.Specification;
 
-public class WithSizeLargerThan implements Specification<Circle> {
+public class WithMinimumRadius implements Specification<Circle> {
+
+    public static WithMinimumRadius of(int minimum) {
+        return new WithMinimumRadius(minimum);
+    }
 
     private final int size;
 
-    public WithSizeLargerThan(int size) {
+    public WithMinimumRadius(int size) {
         this.size = size;
     }
 

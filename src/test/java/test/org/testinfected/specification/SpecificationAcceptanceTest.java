@@ -17,8 +17,8 @@ public class SpecificationAcceptanceTest {
     Circle aLargeWhiteCircle = Circle.white(20);
     Circle aSmallWhiteCircle = Circle.white(5);
     Circle aHugeWhiteCircle = Circle.white(50);
-    Specification<Circle> largeCircle = new WithSizeLargerThan(15);
-    Specification<Circle> hugeCircle = new WithSizeLargerThan(35);
+    Specification<Circle> largeCircle = WithMinimumRadius.of(15);
+    Specification<Circle> hugeCircle = WithMinimumRadius.of(35);
     Specification<Shape> blackShape = WithColor.black();
     Specification<Shape> whiteShape = WithColor.white();
 
