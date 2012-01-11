@@ -17,6 +17,20 @@ public class ConjunctionSpecification<T> extends CompositeSpecification<T> {
         return true;
     }
 
+    @Override public boolean isSpecialCaseOf(Specification<?> other) {
+        for (Specification<? super T> component : components()) {
+            if (component.isSpecialCaseOf(other)) return true;
+        }
+        return false;
+    }
+
+    @Override public boolean isGeneralizationOf(Specification<?> other) {
+        for (Specification<? super T> component : components()) {
+            if (!component.isGeneralizationOf(other)) return false;
+        }
+        return true;
+    }
+
     @SuppressWarnings("unchecked")
     public static <T> ConjunctionSpecification<T> with(Specification<? super T> component) {
         return allOf(component);

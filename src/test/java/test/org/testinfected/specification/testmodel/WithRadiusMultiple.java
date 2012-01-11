@@ -1,8 +1,8 @@
 package test.org.testinfected.specification.testmodel;
 
-import org.testinfected.specification.Specification;
+import org.testinfected.specification.AbstractSpecification;
 
-public class WithRadiusMultiple implements Specification<Circle> {
+public class WithRadiusMultiple extends AbstractSpecification<Circle> {
 
     public static WithRadiusMultiple of(int base) {
         return new WithRadiusMultiple(base);
