@@ -1,9 +1,8 @@
 package test.org.testinfected.specification.testmodel;
 
-import org.testinfected.specification.AbstractSpecification;
 import org.testinfected.specification.Specification;
 
-public class WithMinimumRadius extends AbstractSpecification<Circle> {
+public class WithMinimumRadius implements Specification<Circle> {
 
     public static WithMinimumRadius of(int minimum) {
         return new WithMinimumRadius(minimum);

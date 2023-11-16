@@ -1,6 +1,6 @@
 package org.testinfected.specification;
 
-public class NegationSpecification<T> extends AbstractSpecification<T> {
+public class NegationSpecification<T> implements Specification<T> {
 
     private final Specification<T> negated;
 

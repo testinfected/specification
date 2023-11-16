@@ -1,9 +1,22 @@
 package org.testinfected.specification;
 
 public interface Specification<T> {
+
     boolean isSatisfiedBy(T candidate);
 
-    boolean isSpecialCaseOf(Specification<?> other);
+    default boolean isSpecialCaseOf(Specification<?> other) {
+        return false;
+    }
 
-    boolean isGeneralizationOf(Specification<?> other);
+    default boolean isGeneralizationOf(Specification<?> other) {
+        return false;
+    }
+
+//    default boolean isGeneralizationOfLeaf(Specification<?> leaf) {
+//        return false;
+//    }
+//
+//    default boolean isSpecialCaseOfLeaf(Specification<?> leaf) {
+//        return false;
+//    }
 }

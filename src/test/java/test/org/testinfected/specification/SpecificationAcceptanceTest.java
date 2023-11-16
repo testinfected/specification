@@ -13,6 +13,7 @@ import static org.testinfected.specification.Specifications.not;
 
 public class SpecificationAcceptanceTest {
 
+    Circle aSmallBlackCircle = Circle.black(5);
     Circle aLargeBlackCircle = Circle.black(20);
     Circle aLargeWhiteCircle = Circle.white(20);
     Circle aSmallWhiteCircle = Circle.white(5);
@@ -24,7 +25,7 @@ public class SpecificationAcceptanceTest {
 
     @Test public void
     logicalConjunctionOfSpecifications() {
-        Specification<Circle> largeBlackCircle = Specifications.<Circle>with(largeCircle).and(blackShape);
+        Specification<Circle> largeBlackCircle = Specifications.with(largeCircle).and(blackShape);
         assertThat("satisfied", largeBlackCircle.isSatisfiedBy(aLargeBlackCircle), is(true));
 
         Specification<Circle> largeWhiteCircle = Specifications.<Circle>with(whiteShape).and(largeCircle);
@@ -33,8 +34,8 @@ public class SpecificationAcceptanceTest {
 
     @Test public void
     logicalDisjunctionOfSpecifications() {
-        Specification<Circle> largeOrBlackCircle = Specifications.<Circle>either(largeCircle).or(blackShape);
-        assertThat("satisfied", largeOrBlackCircle.isSatisfiedBy(aLargeBlackCircle), is(true));
+        Specification<Circle> largeOrBlackCircle = Specifications.either(largeCircle).or(blackShape);
+        assertThat("satisfied", largeOrBlackCircle.isSatisfiedBy(aSmallBlackCircle), is(true));
 
         Specification<Circle> hugeOrBlackCircle = Specifications.<Circle>either(blackShape).or(hugeCircle);
         assertThat("satisfied", hugeOrBlackCircle.isSatisfiedBy(aSmallWhiteCircle), is(false));

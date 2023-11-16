@@ -1,9 +1,8 @@
 package test.org.testinfected.specification.testmodel;
 
-import org.testinfected.specification.AbstractSpecification;
 import org.testinfected.specification.Specification;
 
-public class WithColor extends AbstractSpecification<Shape> {
+public class WithColor implements Specification<Shape> {
 
     public static Specification<Shape> white() {
         return new WithColor(Color.white);

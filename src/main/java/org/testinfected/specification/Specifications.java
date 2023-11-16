@@ -8,6 +8,7 @@ public final class Specifications {
         return ConjunctionSpecification.with(specification);
     }
 
+    @SafeVarargs
     public static <T> ConjunctionSpecification<T> allOf(Specification<? super T>... specifications) {
         return ConjunctionSpecification.allOf(specifications);
     }
@@ -16,6 +17,7 @@ public final class Specifications {
         return DisjunctionSpecification.either(specification);
     }
 
+    @SafeVarargs
     public static <T> DisjunctionSpecification<T> anyOf(Specification<? super T>... specifications) {
         return DisjunctionSpecification.anyOf(specifications);
     }

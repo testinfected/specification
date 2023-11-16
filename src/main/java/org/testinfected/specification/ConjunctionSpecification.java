@@ -1,7 +1,7 @@
 package org.testinfected.specification;
 
-import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 public class ConjunctionSpecification<T> extends CompositeSpecification<T> {
 
@@ -31,14 +31,14 @@ public class ConjunctionSpecification<T> extends CompositeSpecification<T> {
         return true;
     }
 
-    @SuppressWarnings("unchecked")
     public static <T> ConjunctionSpecification<T> with(Specification<? super T> component) {
         return allOf(component);
     }
 
-    @SuppressWarnings("varargs")
+    @SafeVarargs
     public static <T> ConjunctionSpecification<T> allOf(Specification<? super T>... components) {
-        return with(Arrays.asList(components));
+        var allOf = List.of(components);
+        return with(allOf);
     }
 
     public static <T> ConjunctionSpecification<T> with(Collection<Specification<? super T>> components) {

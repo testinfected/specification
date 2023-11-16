@@ -31,5 +31,3 @@ b) negation
 3. Extract superclass
 
 4. Implement remainderUnsatisfiedBy(Specification other)
-
-5. Dispatch isSpecialCaseOf and isGeneralizationOf based on parameter type using reflection

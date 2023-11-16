@@ -1,7 +1,7 @@
 package org.testinfected.specification;
 
-import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 public class DisjunctionSpecification<T> extends CompositeSpecification<T> {
 
@@ -17,18 +17,18 @@ public class DisjunctionSpecification<T> extends CompositeSpecification<T> {
         return false;
     }
 
-    @SuppressWarnings("unchecked")
     public static <T> DisjunctionSpecification<T> either(Specification<? super T> component) {
-        return anyOf(component);
+        return either(List.of(component));
     }
 
-    @SuppressWarnings("varargs")
+    @SafeVarargs
     public static <T> DisjunctionSpecification<T> anyOf(Specification<? super T>... components) {
-        return either(Arrays.asList(components));
+        var anyOf = List.of(components);
+        return either(anyOf);
     }
 
-    public static <T> DisjunctionSpecification<T> either(Collection<Specification<? super T>> components) {
-        return new DisjunctionSpecification<T>(components);
+    public static <T> DisjunctionSpecification<T> either(List<Specification<? super T>> components) {
+        return new DisjunctionSpecification<>(components);
     }
 
     public DisjunctionSpecification<T> or(Specification<? super T> component) {

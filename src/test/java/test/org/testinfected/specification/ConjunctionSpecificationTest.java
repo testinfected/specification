@@ -46,7 +46,7 @@ public class ConjunctionSpecificationTest {
 
     @Test public void
     isGeneralizationOfOtherSpecificationIfAllOfItsComponentAre() {
-        Specification<Circle> somewhatLargerCircle = ConjunctionSpecification.<Circle>with(mediumCircle).and(largeCircle);
+        Specification<Circle> somewhatLargerCircle = ConjunctionSpecification.with(mediumCircle).and(largeCircle);
         assertThat("generalization of more specific", somewhatLargerCircle.isGeneralizationOf(veryLargeCircle), is(true));
         assertThat("generalization of component", somewhatLargerCircle.isGeneralizationOf(largeCircle), is(true));
         assertThat("generalization of more generic", somewhatLargerCircle.isGeneralizationOf(mediumCircle), is(false));
